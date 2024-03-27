@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from 'react';
 import Sandbox from './sandbox';
 import ChatbotIcon from './ChatbotIcon';
@@ -9,7 +8,7 @@ const chatbotWidgetStyle = {
   position: 'fixed',
   bottom: '20px',
   right: '20px',
-  zIndex: 9999,
+  zIndex: 10000,
   cursor: 'pointer',
 };
 
@@ -27,16 +26,6 @@ const chatbotIconStyle = {
   animation: 'pulsate 2s infinite',
 };
 
-const chatbotIconTextStyle = {
-  position: 'absolute',
-  width: '100%',
-  top: '80px',
-  textAlign: 'center',
-  fontSize: '14px',
-  color: '#fff',
-  pointerEvents: 'none',
-};
-
 const chatbotContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
@@ -47,6 +36,7 @@ const chatbotContainerStyle = {
   borderRadius: '10px',
   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
   overflow: 'hidden',
+  zIndex: 10001,
 };
 
 const chatHeaderStyle = {
@@ -73,6 +63,16 @@ const chatMessagesStyle = {
   padding: '16px',
 };
 
+const overlayStyle = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  zIndex: -1,
+};
+
 const ChatbotWidget = () => {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
@@ -82,6 +82,7 @@ const ChatbotWidget = () => {
 
   return (
     <div style={chatbotWidgetStyle}>
+      {isChatbotOpen && <div style={overlayStyle} onClick={toggleChatbot}></div>}
       {isChatbotOpen ? (
         <div style={chatbotContainerStyle}>
           {/* Chat header */}
