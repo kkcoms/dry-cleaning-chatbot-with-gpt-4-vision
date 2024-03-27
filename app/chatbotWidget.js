@@ -20,7 +20,7 @@ const chatbotIconStyle = {
   width: '60px',
   height: '60px',
   borderRadius: '50%',
-  backgroundColor: '#007bff',
+  backgroundColor: '#FFD55E',
   padding: '20px',
   color: '#fff',
   boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
