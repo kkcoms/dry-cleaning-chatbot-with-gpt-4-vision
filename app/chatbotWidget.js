@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sandbox from './sandbox';
 import ChatbotIcon from './ChatbotIcon';
 
 // Keyframes for the pulsating effect
-const pulsateKeyframes = `@keyframes pulsate {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.1); opacity: 0.7; }
-  100% { transform: scale(1); opacity: 1; }
-}`;
+const pulsateKeyframes = `@keyframes pulsate { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }`;
 
-// Adding the keyframes to the document head
-const styleSheet = document.createElement("style");
-styleSheet.type = "text/css";
-styleSheet.innerText = pulsateKeyframes;
-document.head.appendChild(styleSheet);
+
+// // Adding the keyframes to the document head
+// const styleSheet = document.createElement("style");
+// styleSheet.type = "text/css";
+// styleSheet.innerText = pulsateKeyframes;
+// document.head.appendChild(styleSheet);
 
 // Inline styles
 const chatbotWidgetStyle = {
@@ -90,39 +87,47 @@ const chatInputStyle = {
 };
 
 const ChatbotWidget = () => {
-    const [isChatbotOpen, setIsChatbotOpen] = useState(false);
-  
-    const toggleChatbot = () => {
-      setIsChatbotOpen(!isChatbotOpen);
-    };
-  
-    return (
-      <div style={chatbotWidgetStyle}>
-        {isChatbotOpen ? (
-          <div style={chatbotContainerStyle}>
-            {/* Chat header */}
-            <div style={chatHeaderStyle}>
-            🤖 Dry Cleaning Chatbot - AI Vision Powered
-              <button onClick={toggleChatbot} style={minimizeButtonStyle}>
-                {/* Minimize icon SVG */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007bff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-              </button>
-            </div>
-            {/* Chat messages */}
-            <div style={chatMessagesStyle}>
-              <Sandbox />
-            </div>
-          </div>
-        ) : (
-          <div style={chatbotIconStyle} onClick={toggleChatbot} role="button" tabIndex="0" aria-label="Open chatbot">
-            <ChatbotIcon />
-            <span style={chatbotIconTextStyle}>How can I assist you?</span>
-          </div>
-        )}
-      </div>
-    );
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+
+  useEffect(() => {
+    // Adding the keyframes to the document head
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = pulsateKeyframes;
+    document.head.appendChild(styleSheet);
+  }, []);
+
+  const toggleChatbot = () => {
+    setIsChatbotOpen(!isChatbotOpen);
   };
-  
-  export default ChatbotWidget;
+
+  return (
+    <div style={chatbotWidgetStyle}>
+      {isChatbotOpen ? (
+        <div style={chatbotContainerStyle}>
+          {/* Chat header */}
+          <div style={chatHeaderStyle}>
+            🤖 Dry Cleaning Chatbot - AI Vision Powered
+            <button onClick={toggleChatbot} style={minimizeButtonStyle}>
+              {/* Minimize icon SVG */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#007bff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+          </div>
+          {/* Chat messages */}
+          <div style={chatMessagesStyle}>
+            <Sandbox />
+          </div>
+        </div>
+      ) : (
+        <div style={chatbotIconStyle} onClick={toggleChatbot} role="button" tabIndex="0" aria-label="Open chatbot">
+          <ChatbotIcon />
+          <span style={chatbotIconTextStyle}>How can I assist you?</span>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ChatbotWidget;
