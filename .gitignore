@@ -1,0 +1,5 @@
+/.env.local
+/.next
+/.trunk
+/node_modules
+/package-lock.json
