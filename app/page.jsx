@@ -1,4 +1,5 @@
 import Sandbox from "./sandbox"
+import ChatbotWidget from "./chatbotWidget"
 
 export const metadata = {
     title: process.env.siteTitle,
@@ -11,5 +12,6 @@ export const metadata = {
 }
 
 export default function Page() {
-    return <Sandbox />
+    return       <ChatbotWidget />
+
 }
