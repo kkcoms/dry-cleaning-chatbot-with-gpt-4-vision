@@ -95,7 +95,7 @@ const ChatbotWidget = () => {
           </div>
           {/* Chat messages */}
           <div style={chatMessagesStyle}>
-            <Sandbox />
+            {/* <Sandbox /> */}
           </div>
         </div>
       ) : (
