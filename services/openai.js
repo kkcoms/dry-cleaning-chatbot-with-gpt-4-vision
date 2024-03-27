@@ -43,7 +43,7 @@ export async function imageCompletion({
 }
 
 export async function chatCompletion({
-    model = 'gpt-3.5-turbo-1106', //'gpt-3.5-turbo-0613',
+    model = 'gpt-4-turbo-preview', //'gpt-3.5-turbo-0613',
     max_tokens = 2048,
     temperature = 0,
     messages,
