@@ -21,6 +21,7 @@ const chatbotIconStyle = {
   height: '60px',
   borderRadius: '50%',
   backgroundColor: '#007bff',
+  padding: '20px',
   color: '#fff',
   boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
   animation: 'pulsate 2s infinite',
@@ -101,7 +102,7 @@ const ChatbotWidget = () => {
       ) : (
         <div style={chatbotIconStyle} onClick={toggleChatbot} role="button" tabIndex="0" aria-label="Open chatbot">
           <ChatbotIcon />
-          <span style={chatbotIconTextStyle}>How can I assist you?</span>
+          {/* <span style={chatbotIconTextStyle}>How can I assist you?</span> */}
         </div>
       )}
     </div>
