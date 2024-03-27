@@ -1,4 +1,3 @@
-"use client"
 import Sandbox from "./sandbox"
 import ChatbotWidget from "./chatbotWidget"
 
