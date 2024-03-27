@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Sandbox from './sandbox';
 import ChatbotIcon from './ChatbotIcon';
-
-// Keyframes for the pulsating effect
-const pulsateKeyframes = `@keyframes pulsate { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }`;
-
-
-// // Adding the keyframes to the document head
-// const styleSheet = document.createElement("style");
-// styleSheet.type = "text/css";
-// styleSheet.innerText = pulsateKeyframes;
-// document.head.appendChild(styleSheet);
 
 // Inline styles
 const chatbotWidgetStyle = {
@@ -31,19 +21,18 @@ const chatbotIconStyle = {
   backgroundColor: '#007bff',
   color: '#fff',
   boxShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
-  animation: 'pulsate 2s infinite', // Apply the pulsating animation
-
+  animation: 'pulsate 2s infinite',
 };
 
 const chatbotIconTextStyle = {
-    position: 'absolute',
-    width: '100%',
-    top: '80px', // Adjust the value as needed to position the text
-    textAlign: 'center',
-    fontSize: '14px',
-    color: '#fff',
-    pointerEvents: 'none', // Prevents the text from blocking click events
-  };
+  position: 'absolute',
+  width: '100%',
+  top: '80px',
+  textAlign: 'center',
+  fontSize: '14px',
+  color: '#fff',
+  pointerEvents: 'none',
+};
 
 const chatbotContainerStyle = {
   display: 'flex',
@@ -58,14 +47,14 @@ const chatbotContainerStyle = {
 };
 
 const chatHeaderStyle = {
-    padding: '16px',
-    backgroundColor: '#f1f1f1',
-    borderBottom: '1px solid #ddd',
-    fontSize: '16px',
-    fontWeight: 'bold', // Make the font bold
-    display: 'flex', // To align items in the header
-  justifyContent: 'space-between', // To place content and button on opposite ends
-  alignItems: 'center', // To vertically center the contents
+  padding: '16px',
+  backgroundColor: '#f1f1f1',
+  borderBottom: '1px solid #ddd',
+  fontSize: '16px',
+  fontWeight: 'bold',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
 };
 
 const minimizeButtonStyle = {
@@ -77,25 +66,12 @@ const minimizeButtonStyle = {
 };
 
 const chatMessagesStyle = {
-//   flexGrow: 1,
   overflowY: 'auto',
   padding: '16px',
 };
 
-const chatInputStyle = {
-  padding: '12px',
-};
-
 const ChatbotWidget = () => {
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
-
-  useEffect(() => {
-    // Adding the keyframes to the document head
-    const styleSheet = document.createElement("style");
-    styleSheet.type = "text/css";
-    styleSheet.innerText = pulsateKeyframes;
-    document.head.appendChild(styleSheet);
-  }, []);
 
   const toggleChatbot = () => {
     setIsChatbotOpen(!isChatbotOpen);
