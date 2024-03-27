@@ -1,4 +1,3 @@
-//sandbox.js
 "use client";
 
 import React from "react";
@@ -66,7 +65,8 @@ export default function Sandbox() {
       id: getSimpleId(),
       gid: getSimpleId(),
       role: "starter",
-      content: "Tell me about your dry cleaning services and garment care.",
+      content:
+        "Could you tell me more about the dry cleaning services you offer, including your processes and the types of garments you can clean?",
       type: "text",
       datetime: new Date().toISOString(),
     },
@@ -74,7 +74,8 @@ export default function Sandbox() {
       id: getSimpleId(),
       gid: getSimpleId(),
       role: "starter",
-      content: "How do you treat tough stains?",
+      content:
+        "I have a stubborn stain on a garment. Could you advise on how you could treat it.",
       type: "text",
       datetime: new Date().toISOString(),
     },
@@ -82,28 +83,30 @@ export default function Sandbox() {
       id: getSimpleId(),
       gid: getSimpleId(),
       role: "starter",
-      content: "What's the price for dry cleaning?",
+      content:
+        "I'd like to get a price quote for some garments I need dry cleaned.",
       type: "text",
       datetime: new Date().toISOString(),
     },
-    // {
-    //   id: getSimpleId(),
-    //   gid: getSimpleId(),
-    //   role: "starter",
-    //   content: "When will my dry cleaning be ready?",
-    //   type: "text",
-    //   datetime: new Date().toISOString(),
-    // },
     {
       id: getSimpleId(),
       gid: getSimpleId(),
       role: "starter",
-      content: "Can you update me on my order status?",
+      content:
+        "I'm planning to drop off some items for dry cleaning. Could you give me an estimated timeline for when they'll be ready for pickup?",
+      type: "text",
+      datetime: new Date().toISOString(),
+    },
+    {
+      id: getSimpleId(),
+      gid: getSimpleId(),
+      role: "starter",
+      content:
+        "I'd like to check the status of my order. I have my order number here; can you look it up for me?",
       type: "text",
       datetime: new Date().toISOString(),
     },
   ]);
-  
 
   const handleStarterMessageClick = (content) => {
     setInputText(content);
@@ -379,16 +382,18 @@ export default function Sandbox() {
   return (
     <div className={classes.container}>
       <div className={classes.main}>
-        {/* <div className={classes.header}>
+        <div className={classes.header}>
           <h1 className={classes.title}>{process.env.siteTitle}</h1>
-        </div> */}
+        </div>
         {showHeaders && (
           <div>
             <div className={classes.headerTextshort}>
-            Upload garment photos for quick help! 👕📸👀                        
+              How can I help you today?
             </div>
             <div className={classes.headerTextdesc}>
-            Choose a question below, ask your own, or upload images for clarity. I’m here to help!
+              Feel free to select one of the questions below or type your own
+              question in the chat box. You can also upload images to help me
+              better understand your inquiry.
             </div>
           </div>
         )}
